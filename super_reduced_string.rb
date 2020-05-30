@@ -79,7 +79,7 @@ stringReducter("aaaccccaaaccccaaaccccaaacccc") #this works
 #   p reduced_string
 # end
 
-# # stringReducter("aaabccddd")
+stringReducter("aaabccddd")
 # stringReducter("baab")
 
 
@@ -125,36 +125,33 @@ stringReducter("aaaccccaaaccccaaaccccaaacccc") #this works
 def superReducedString(s)
 
   string_array = s.split('')
-p string_array
-times_to_do = string_array.length / 2
-times_to_do.times do
-  p "DOING THE TIMES THING"
-  i = 0 
-  while i < string_array.length
-    p "RUNNING WHILE LOOP; i is #{i}"
-    p "RUNNING IF STATEMENT"
-    if string_array[i] == string_array [i+1]
-      p "deleting at i deletes index #{i}, which is #{string_array[i]} and returns:"
-      string_array.delete_at(i) 
-      p string_array
-      p "deleting at i deletes index #{i}, which is #{string_array[i]} and returns:"
-      string_array.delete_at(i)
-      # The below code doesn't work! Because when the string at index i is deleted, the index values reset with respect to i, so the next character you need to delete is now in the same place in the array that i just was. So now you need to delete at the _new_ i, rather than at i+1 where you first identified that string_array[i] and string_array[i+1] had the same value!!!!
-      # p "deleting at i+1 deletes index #{i+1}, which is #{string_array[i+1]} and returns:"
-      # string_array.delete_at(i+1)
-      p "JUST DELETED TWO: #{string_array}"
-    else
-      p string_array
-      i+=1
+  p string_array
+  times_to_do = string_array.length / 2
+  times_to_do.times do
+    p "DOING THE TIMES THING"
+    i = 0 
+    while i < string_array.length
+      p "RUNNING WHILE LOOP; i is #{i}"
+      p "RUNNING IF STATEMENT"
+      if string_array[i] == string_array [i+1]
+        p "deleting at i deletes index #{i}, which is #{string_array[i]} and returns:"
+        string_array.delete_at(i) 
+        p string_array
+        p "deleting at i deletes index #{i}, which is #{string_array[i]} and returns:"
+        string_array.delete_at(i)
+        p "JUST DELETED TWO: #{string_array}"
+      else
+        p string_array
+        i+=1
+      end
     end
   end
-end
-p string_array
-superReducedString = string_array.join
-if superReducedString == ""
-  return "Empty String"
-else
-    return superReducedString
-end
+  p string_array
+  superReducedString = string_array.join
+  if superReducedString == ""
+    return "Empty String"
+  else
+      return superReducedString
+  end
 
 end
