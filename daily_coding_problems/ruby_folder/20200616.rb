@@ -25,21 +25,36 @@
 
 # REWRITE WITH EACH DO
 
-def productExcluder(input)
-  masterProduct = 1
-  input.each do |number|
-    masterProduct *= number
-  end
+# def productExcluder(input)
+#   masterProduct = 1
+#   input.each do |number|
+#     masterProduct *= number
+#   end
 
-  output = []
-  input.each do |number|
-    product = masterProduct / number
-    output << product
+#   output = []
+#   input.each do |number|
+#     product = masterProduct / number
+#     output << product
+#   end
+#   return output
+# end
+
+# p productExcluder([1, 2, 3, 4, 5])
+# p productExcluder([3, 2, 1])
+# p productExcluder([1, 2, 3, 4, 5, 6])
+
+# Sean's solution:
+
+def array_of_other_products(array)
+  total = array.reduce(:*)
+  p total
+  array.map do |number|
+    p number
+    total / number
   end
-  return output
 end
 
-p productExcluder([1, 2, 3, 4, 5])
-p productExcluder([3, 2, 1])
-p productExcluder([1, 2, 3, 4, 5, 6])
+p array_of_other_products([1, 2, 3, 4, 5])
+# p array_of_other_products([3, 2, 1])
+# Follow-up: what if you can't use division?
 
