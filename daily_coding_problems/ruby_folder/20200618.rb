@@ -18,16 +18,33 @@
 
 # You can modify the input array in-place.
 
+# V1 Solution:
+# input = [3, 4, -1, 1]
+
+# def lowestMissingIntegerFinder(array)
+#   i=1
+#   while true
+#     if array.include?(i)
+#       i+=1
+#     else return i
+#     end
+#   end
+# end
+
+# p lowestMissingIntegerFinder(input)
+# p lowestMissingIntegerFinder([1, 2, 0])
+# p lowestMissingIntegerFinder([5, 4, 3, 1, 2])
+
+# V2 Solution:
+
 input = [3, 4, -1, 1]
 
 def lowestMissingIntegerFinder(array)
   i=1
-  while true
-    if array.include?(i)
-      i+=1
-    else return i
-    end
+  while array.include?(i) do
+    i+=1
   end
+  return i
 end
 
 p lowestMissingIntegerFinder(input)
