@@ -20,6 +20,8 @@
 
 # TRY 2
 
+# prices = [9, 11, 8, 5, 7, 10]
+
 # def profitMaximizer (array)
 #   lowestBuy = array[0]
 #   p lowestBuy
@@ -99,35 +101,68 @@
 #   return arrayOfProfits.max
 # end
   
-# # profitMaximizer(prices)
+# profitMaximizer(prices)
 # profitMaximizer(example2)
 
 # TRY 3 should work!!! I'm pretty confident that this does the thing correctly (though I'm sure there's a way to do it more eloquently). Now let's clean it up...
+
+# prices = [9, 11, 8, 5, 7, 10]
+# example2 = [4, 3, 12, 1, 6]
+
+# def profitMaximizer (array)
+#   i = array.length-1
+#   arrayOfProfits = []
+#   while i > 0
+#     sellPrice = array[i]
+#     j=i-1
+#     highestProfit = array[i] - array[j]
+#       while j > 0
+#         profit = array[i]-array[j]
+#         if profit > highestProfit
+#           highestProfit = profit
+#         end
+#         j-=1
+#       end
+#       arrayOfProfits << highestProfit
+#       i -= 1
+#     end
+#   p "The highest profit is #{arrayOfProfits.max}"
+#   return arrayOfProfits.max
+# end
+  
+# profitMaximizer(prices)
+# profitMaximizer(example2)
+
+# TRY 4
 
 prices = [9, 11, 8, 5, 7, 10]
 example2 = [4, 3, 12, 1, 6]
 
 def profitMaximizer (array)
   i = array.length-1
-  arrayOfProfits = []
+  highestProfit = 0
   while i > 0
     sellPrice = array[i]
     j=i-1
-    highestProfit = array[i] - array[j]
+    highestProfitForThisI = array[i] - array[j]
       while j > 0
         profit = array[i]-array[j]
-        if profit > highestProfit
-          highestProfit = profit
+        if profit > highestProfitForThisI
+          highestProfitForThisI = profit
         end
         j-=1
       end
-      arrayOfProfits << highestProfit
+      if highestProfitForThisI > highestProfit
+        highestProfit = highestProfitForThisI
+      end
       i -= 1
     end
-  p "The highest profit is #{arrayOfProfits.max}"
-  return arrayOfProfits.max
+  p "The highest profit is #{highestProfit}"
+  return highestProfit
 end
   
 profitMaximizer(prices)
 profitMaximizer(example2)
+
+
 
